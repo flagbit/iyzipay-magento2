@@ -56,7 +56,10 @@ class IyzipayConfigSaveBefore implements ObserverInterface
 
         $postData = $this->_request->getPostValue();
 
-        if(!empty($postData['groups']['iyzipay']['fields']['active'])) {
+        if(!empty($postData['groups']['iyzipay']['fields']['active'])
+            && isset($postData['groups']['iyzipay']['fields']['active']['value'])
+            && $postData['groups']['iyzipay']['fields']['active']['value']
+        ) {
 
            
             $apiKey = $postData['groups']['iyzipay']['fields']['api_key']['value'];
